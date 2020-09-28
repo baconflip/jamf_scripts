@@ -29,7 +29,7 @@ IFS=' '
 # We are going to grab the mobile device IDs first from the smart or static group and place them
 # into an array to loop through.
 
-/bin/echo "Gather iPad device IDs from group: $group_ids"
+/bin/echo "Gather iPad device IDs from group: $group_id"
 members_of_group=$(/usr/bin/curl -sku "${api_user}:${api_pass}" ${jss_url}/JSSResource/mobiledevicegroups/id/${group_id} | xpath //mobile_devices/mobile_device/id | tr '</id>' '\n')
 array_id=$(/bin/echo $members_of_group | awk '$1=$1' | tr '\n' ' ')
 
