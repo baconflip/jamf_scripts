@@ -1,7 +1,7 @@
 #!/bin/bash
 ########################################### ABOUT ##############################################
 #
-# Name: mobile_smart_group_api_commands.sh
+# Name: mobile_group_clear_and update.sh
 # Date: Sept 2020
 # By: Steven Russell
 #
