@@ -40,22 +40,21 @@ count=1
 
 # Roll though the mobile serials for names
 for mobile_id in $array_id; do
-    
-    # First, we are going to cancel all pending and failed commands for each device in the array
-    /usr/bin/curl -sku "${api_user}:${api_pass}" ${jss_url}/JSSResource/commandflush/mobiledevices/id/"${mobile_id}"/status/Pending+Failed -X DELETE > /dev/null
-    
-    ## Then, we'll show the iPad count number in the script output to the screen
+    #### Going to output some sort of progress to the screen...
     /bin/echo "iPad number: $count of $array_size"
     ((count=count+1))
+    
+    #### CANCEL ALL PENDING AND FAILED COMMANDS:
+    /usr/bin/curl -sku "${api_user}:${api_pass}" ${jss_url}/JSSResource/commandflush/mobiledevices/id/"${mobile_id}"/status/Pending+Failed -X DELETE > /dev/null
     if [ $? = 0 ]; then
         /bin/echo "iPad ID: ${mobile_id} successfully cleared commands"
     else
         /bin/echo "iPad ID: ${mobile_id} failed to clear commands"
     fi
 
-    #Finally, we'll send update inventory command to each iPad in the array
+    #### UPDATE INVENTORY COMMANDS:
     /usr/bin/curl -sku "${api_user}:${api_pass}" ${jss_url}/JSSResource/mobiledevicecommands/command/UpdateInventory/id/"${mobile_id}" -X POST > /dev/null
-    if [ $? = 0 ]; then
+        if [ $? = 0 ]; then
         /bin/echo "iPad ID: ${mobile_id} successfully updated inventory"
         /bin/echo "=========================="
     else
