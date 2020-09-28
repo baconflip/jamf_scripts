@@ -15,6 +15,8 @@ api_pass="api_pass_here"
 ## JAMF URL
 jss_url="https://jss.domain:8443"
 
+# API Permissions, ensure that the api_user is configured under "Jamf Pro Server Actions" to have the "Send Mobile Device Remote Command to Download and Install iOS Update"
+
 ## Static or Smart Group ID here
 # Insert the groupID here, found easily in the URL of the mobile device smart group
 # For example: https://jss.domain:8443/smartMobileDeviceGroups.html?id=1234&o=r
