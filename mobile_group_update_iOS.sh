@@ -38,7 +38,7 @@ array_calc=$(echo ${array_id} | wc -w)
 array_size=$(echo $array_calc | sed -e 's,\\[trn],,g')
 count=1
 
-# Roll though the mobile serials for names
+# for loop through each mobile device id and apply the actions
 for mobile_id in $array_id; do
     #### Going to output some sort of progress to the screen...
     /bin/echo "iPad number: $count of $array_size"
