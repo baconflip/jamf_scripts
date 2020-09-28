@@ -1,7 +1,7 @@
 #!/bin/bash
 ########################################### ABOUT ##############################################
 #
-# Name: mobile_smart_group_update_iOS.sh
+# Name: mobile_group_update_iOS.sh
 # Date: Sept 2020
 # By: Steven Russell
 #
